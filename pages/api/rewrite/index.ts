@@ -42,8 +42,7 @@ export default async function handler(
     const output = data.choices?.[0]?.message?.content || "No response from AI.";
 
     return res.status(200).json({ output });
-  } catch (_) {
+  } catch {
     return res.status(500).json({ error: "API request failed" });
   }
 }
-4
