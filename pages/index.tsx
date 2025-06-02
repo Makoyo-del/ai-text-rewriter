@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { downloadPDF } from "../utils/pdfGenerator";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -64,7 +65,13 @@ export default function Home() {
       {output && (
         <section className="mt-6 w-full max-w-2xl bg-white p-4 border rounded shadow">
           <h2 className="font-bold mb-2">Rewritten Output</h2>
-          <p>{output}</p>
+          <p className="whitespace-pre-wrap">{output}</p>
+          <button
+            onClick={() => downloadPDF(output)}
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            Download as PDF
+          </button>
         </section>
       )}
     </main>
